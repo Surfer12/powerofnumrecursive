@@ -1,12 +1,18 @@
-// power of a number using recursion
-public class PowerOfNumRecursive {
+// power of a number using recursion improved
+public class PowerOfNumRecursiveImproved {
     public int power(int num, int exp)
     {  
         if(exp == 0)
         {
             return 1;
         }
-        return num *= power(num, exp - 1);
+        // if exp is odd then we can use the property of exponents that (a^b) * (a^b) = a^(2b)
+        if(exp % 2 == 1){
+            return num * power(num, exp - 1); // if exp is odd then we can use the standard formula of power of a number and multiply it with num
+        }
+        else {
+            return (power(num, exp / 2) * power(num, exp / 2)); // if exp is even then we can use the property of exponents that (a^b) * (a^b) = a^(2b)
+        }
     }
 }
 

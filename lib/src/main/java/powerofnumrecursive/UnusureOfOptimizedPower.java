@@ -1,7 +1,7 @@
 // write recursive function to calculate power of a number in o(log(n)) time complexity
 // provide analysis of time and space complexity
 
-public class OptimizedPower {
+public class UnusureOfOptimizedPower {
     public int power(int num, int exp) { 
         int halfPower;
         if (exp == 0) {
