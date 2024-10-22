@@ -1,8 +1,6 @@
 // write recursive function to calculate power of a number in o(log(n)) time complexity
 
 public class RecursiveReduced {
-    private int num;
-    private int exp;
     public int power(int num, int exp) {
         if (exp == 0) {
             return 1;
