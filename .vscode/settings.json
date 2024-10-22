@@ -2,5 +2,6 @@
     "java.project.sourcePaths": [
         "lib/src/main/java/powerofnumrecursive",
         "lib/src/test/java/powerofnumrecursive"
-    ]
+    ],
+    "cursor.general.enableShadowWorkspace": true
 }
