@@ -3,16 +3,15 @@ package powerofnumrecursive;
 // provide analysis of time and space complexity
 
 public class UnusureOfOptimizedPower {
-    public int power(int num, int exp) { 
-        int halfPower;
+    public double power(double num, double exp) {
         if (exp == 0) {
-            return 1; // base case
+            return 1.0;
         }
-        if (exp % 2 == 0) { // if exp is even then we can use the property of exponents that (a^b) * (a^b) = a^(2b) 
-            halfPower = power(num, exp / 2); // calculate the power of num raised to exp/2 i.e if exp is 4 then we calculate the power of num raised to 2 
-            return halfPower * halfPower; // return the result i.e if exp is 4 then we return the power of num raised to 2 multiplied by itself
+        if (exp % 2 == 0) {
+            double halfPower = power(num, exp / 2);
+            return Math.pow(halfPower, 2);
         } else {
-            return num * power(num, exp - 1); // if exp is odd then we can use the standard formula of power of a number and multiply it with num
+            return num * power(num, exp - 1);
         }
     }
 }

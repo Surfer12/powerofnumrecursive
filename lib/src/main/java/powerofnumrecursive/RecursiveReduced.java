@@ -5,12 +5,13 @@ import java.lang.Math; // clarify the import
 public class RecursiveReduced {
     public double power(double num, double exp) {
         if (exp == 0) {
-            return 1;
+            return 1.0;
         }
         if (exp % 2 == 0) {
-            return (double) (Math.pow(power(num, exp / 2), 2)); // return the result of the power of num raised to exp/2 multiplied by itself. 
+            double halfPower = power(num, exp / 2);
+            return Math.pow(halfPower, 2);
         } else {
-            return (double) (num * Math.pow(power(num, exp - 1), 1)); // return the result of num multiplied by the power of num raised to exp-1
+            return num * power(num, exp - 1);
         }
     }
 }

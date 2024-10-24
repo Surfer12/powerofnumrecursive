@@ -1,18 +1,19 @@
 package powerofnumrecursive;
 // power of a number using recursion improved
 public class PowerOfNumRecursiveImproved {
-    public int power(int num, int exp)
+    public double power(double num, double exp)
     {  
         if(exp == 0)
         {
-            return 1;
+            return 1.0;
         }
         // if exp is odd then we can use the property of exponents that (a^b) * (a^b) = a^(2b)
         if(exp % 2 == 0){
-            return (power(num, exp / 2) * power(num, exp / 2)); // if exp is even then we can use the property of exponents that (a^b) * (a^b) = a^(2b)
+            double halfPower = power(num, exp / 2);
+            return Math.pow(halfPower, 2);
         }
         else {
-            return (num * power(num, exp - 1)); // if exp is odd then we can use the standard formula of power of a number and multiply it with num
+            return num * power(num, exp - 1); // if exp is odd then we can use the standard formula of power of a number and multiply it with num
         }
     }
 }
