@@ -1,3 +1,5 @@
+[]: # Title: Power Calculation Classes
+[]: # Description: Explanation of Power Calculation Classes
 
 # Explanation of Power Calculation Classes
 
