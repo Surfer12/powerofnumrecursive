@@ -1,16 +1,16 @@
 package powerofnumrecursive;
+import java.lang.Math; // clarify the import
 // write recursive function to calculate power of a number in o(log(n)) time complexity
 
 public class RecursiveReduced {
-    public int power(int num, int exp) {
+    public double power(double num, double exp) {
         if (exp == 0) {
             return 1;
         }
         if (exp % 2 == 0) {
-            int halfPower = power(num, exp / 2);
-            return halfPower * halfPower; // Use the property of exponents
+            return (double) (Math.pow(power(num, exp / 2), 2)); // return the result of the power of num raised to exp/2 multiplied by itself. 
         } else {
-            return num * power(num, exp - 1); // If exp is odd
+            return (double) (num * Math.pow(power(num, exp - 1), 1)); // return the result of num multiplied by the power of num raised to exp-1
         }
     }
 }
