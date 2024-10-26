@@ -1,7 +1,9 @@
 # Explanation of Power Calculation Classes
 
 ## 1. PowerCalculator
-**Overview:** This class implements a recursive method to calculate the power of a number. It checks if the exponent is zero, in which case it returns 1. If the exponent is even, it calculates the power of half the exponent and squares the result. If the exponent is odd, it multiplies the base number by the result of the power function with the exponent decremented by one.
+**Overview:** This class implements a recursive method to calculate the power of a number. It checks if the exponent is zero, in which case it returns 1. If the exponent is even, it calculates the power of half the exponent and squares the result. 
+
+If the exponent is odd, it multiplies the base number by the result of the power function with itself and the two halves of the exponent to achieve the time complexity of O(log n).
 java:lib/src/main/java/powerofnumrecursive/PowerCalculator.java
 package powerofnumrecursive;
 

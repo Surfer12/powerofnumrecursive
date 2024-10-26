@@ -1,11 +1,17 @@
-```
-CIS 233 - 01
+CIS 233
 Fall 2024
 Assignment 2
-Author:
-Description: This program calculates the power of a number using recursion.
-```
+Author: Ryan Oates
+
+**Overview:** This class implements a recursive method to calculate the power of a number. It checks if the exponent is zero, in which case it returns 1. 
+
+If the exponent is even, it calculates the power of half the exponent and squares the result. 
+
+If the exponent is odd, it multiplies the base number by the result of the power function with itself and the two halves of the exponent to achieve the time complexity of O(log n).
+
+lib\src\main\java\powerofnumrecursive\PowerOfNum.java
 ```java
+package powerofnumrecursive;
 public class PowerOfNum {
     public double power(int x, int n) {
         if (n < 0) {
@@ -22,6 +28,20 @@ public class PowerOfNum {
         } else {
             return (x * (halfPower * halfPower));
         }
+    }
+}
+```
+
+lib\src\main\java\powerofnumrecursive\MainMethod.java
+```java
+package powerofnumrecursive;
+
+public class MainMethod {
+    public static void main(String[] args) {
+        PowerOfNum objCreation = new PowerOfNum();
+        System.out.println("2^3 = " + objCreation.power(2, 3));
+        System.out.println("3^3 = " + objCreation.power(3, 3));
+        System.out.println("4^3 = " + objCreation.power(4, 3));
     }
 }
 ```

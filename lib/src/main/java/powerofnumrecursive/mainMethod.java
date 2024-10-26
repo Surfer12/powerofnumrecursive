@@ -1,6 +1,5 @@
 package powerofnumrecursive;
 
-
 public class MainMethod {
     public static void main(String[] args) {
         PowerOfNum calculator = new PowerOfNum();
