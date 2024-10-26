@@ -10,20 +10,21 @@ Explanation: Provide a clear explanation of the time complexity of your code. */
 
 
 public class PowerOfNum {
-    public double power(int x, int n) {
+    public int power(int x, int n) {
         if (n < 0) {
-            System.err.println("Negative exponent not allowed: " + n + ". Input a valid number that is greater than or equal to 0");
-            return -1;
+            throw new IllegalArgumentException(
+                "Negative exponent not allowed: " + n + ". Please provide a non-negative integer."
+            );
         }
         if (n == 0) {
-            return 1.0;
+            return 1;
         }
-        
-        double halfPower = power(x, n / 2);
+
+        int halfPower = power(x, n / 2);
         if (n % 2 == 0) {
-            return (halfPower * halfPower);
+            return halfPower * halfPower;
         } else {
-            return (x * (halfPower * halfPower));
+            return x * halfPower * halfPower;
         }
     }
 }
