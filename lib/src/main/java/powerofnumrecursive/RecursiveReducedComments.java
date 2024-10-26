@@ -1,4 +1,5 @@
 package powerofnumrecursive;
+
 /* Write a function power(x, n) that calculates x raised to the power of n, where n is a non-negative integer. Your solution must use recursion. Aim for a time complexity of O(log n).
 Requirements:
 
@@ -22,15 +23,32 @@ public class RecursiveReducedComments {
     }
 }
 
-// the above function is not optimized and takes o(n) time complexity
-// we can optimize it to o(log(n)) time complexity by using the following approach
-// we can use the property of exponents that (a^b) * (a^b) = a^(2b)
-// and (a^b) / (a^b) = a^(b-b) = a^0 = 1
-// we can use this property to reduce the time complexity
-// we can recursively call the function with exp as exp/2 and multiply the result with itself
-// if exp is odd we can multiply the result with num
-// this approach will reduce the time complexity to o(log(n))
+/* Flow:
+   - User calls `power(num, exp)`
+   - If `exp == 0`:
+     - Return `1`
+   - Else if `exp % 2 == 0`:
+     - Call `power(num, exp / 2)`
+     - Store result in `halfPower`
+     - Return `halfPower * halfPower`
+   - Else:
+     - Call `power(num, exp - 1)`
+     - Return `num * result`
 
+### Example of Sequence Diagram Steps
+
+- **User** -> **OptimizedPower**: `power(num, exp)`
+- **OptimizedPower**: Check if `exp == 0`
+  - If true: Return `1`
+- **OptimizedPower**: Check if `exp % 2 == 0`
+  - If true: 
+    - Call `power(num, exp / 2)`
+    - Store result in `halfPower`
+    - Return `halfPower * halfPower`
+- **OptimizedPower**: Else:
+  - Call `power(num, exp - 1)`
+  - Return `num * result`
+*/
 
 /* Explanation of Changes
 The power method has been modified to check if the exponent (exp) is even or odd.
