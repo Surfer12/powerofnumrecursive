@@ -63,8 +63,8 @@ power(2, 1):
 power(2, 0):
 - returns 1.0
 ```
-```markdown
-### Context of recursion: "Going back up the call stack"
+
+### Context of recursion: The Stack
 #### Explanation of the Call Stack in Recursion
 1. Recursive Calls:
 When a function calls itself, it creates a new layer in the call stack. 
@@ -73,7 +73,7 @@ Each call has its own set of parameters and local variables.
 Let’s illustrate this with the example of power(2, 5):
 Call Stack Creation:
 
-/* Recursive Call Stack Analysis for power(x, n):
+Recursive Call Stack Analysis for power(x, n):
 
 Example: power(2, 5)
 Call Stack Formation (Going Down):
