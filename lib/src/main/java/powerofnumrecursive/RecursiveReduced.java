@@ -1,17 +1,23 @@
 package powerofnumrecursive;
-import java.lang.Math; // clarify the import
-// write recursive function to calculate power of a number in o(log(n)) time complexity
+/* Write a function power(x, n) that calculates x raised to the power of n, where n is a non-negative integer. Your solution must use recursion. Aim for a time complexity of O(log n).
+Requirements:
+
+Functionality: The power(x, n) function should accurately calculate the result for any valid input values of x and n (where n >= 0).
+Recursion: The solution must utilize a recursive approach.
+Time Complexity: Strive to achieve a time complexity of O(log n).
+Explanation: Provide a clear explanation of the time complexity of your code. */
+
 
 public class RecursiveReduced {
-    public double power(double num, double exp) {
-        if (exp == 0) {
+    public double power(double x, double n) {
+        if (n == 0) {
             return 1.0;
         }
-        if (exp % 2 == 0) {
-            double halfPower = power(num, exp / 2);
+        if (n % 2 == 0) {
+            double halfPower = power(x, n / 2);
             return Math.pow(halfPower, 2);
         } else {
-            return num * power(num, exp - 1);
+            return x * power(x, n - 1);
         }
     }
 }
