@@ -21,25 +21,27 @@ public class PowerOfNum {
         
         double halfPower = power(x, n / 2);
         if (n % 2 == 0) {
-            return halfPower * halfPower;
+            return (halfPower * halfPower);
         } else {
-            return x * halfPower * halfPower;
+            return (x * (halfPower * halfPower));
         }
     }
 }
 
-/* Flow:
-   - User calls `power(num, exp)`
-   - If `exp < 0`:
-     - Print error message
-     - Return -1
+/* Flow: Class PowerOfNum
+Recursive Method: power(num, exp)
+Description of recursive method:
+   - User calls `power(num, exp)` (num = base, exp = exponent) ; (Both are integers that are non-negative and stored in variables that serve as auxilliary space placeholders for this power method)
+   - If `exp < 0`: 
+     - Print error message 
+     - Return -1 (error code)
    - If `exp == 0`:
-     - Return `1.0`
-   - Calculate halfPower = power(num, exp/2)
+     - Return `1.0` (base case) 
+   - Calculate single halfPower value = power(num, exp/2)
    - If `exp % 2 == 0`:
-     - Return `halfPower * halfPower`
+     - Return `halfPower * halfPower` (recursive case) ; (This resolves to the base case when exp is even and the recursion will be a step away from completing)
    - Else:
-     - Return `num * halfPower * halfPower`
+     - Return `num * halfPower * halfPower` (recursive case) ; (This resolves to the base case when exp is odd and the recursion will be a step away from completing)
 
 Time Complexity: O(log n)
 The algorithm always divides the problem in half at each recursive step,
