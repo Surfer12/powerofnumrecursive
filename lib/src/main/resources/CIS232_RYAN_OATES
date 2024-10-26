@@ -19,14 +19,14 @@ public class PowerOfNum {
             return -1;
         }
         if (n == 0) {
-            return 1.0;
+            return 1;
         }
         
         double halfPower = power(x, n / 2);
         if (n % 2 == 0) {
-            return (halfPower * halfPower);
+            return halfPower * halfPower;
         } else {
-            return (x * (halfPower * halfPower));
+            return x * halfPower * halfPower;
         }
     }
 }
@@ -63,25 +63,25 @@ Description of recursive method:
 ```
 Flow: Numerical Example
 
-Example: power(2, 5)
+Example: single method call of power(2, 5)
 
-power(2, 5):
+power(2, 5): 
 - n = 5 (odd)
-- halfPower = power(2, 5/2) = power(2, 2)  // integer division gives 2
-- returns 2 * halfPower * halfPower        // this gives us 2 * (2^2) * (2^2) = 2 * 4 * 4 = 32
+- halfPower = power(2, 5/2) = power(2, 2)          // integer division of 5/2 gives us 2. Odd values are handled by multiplying by x one extra time in the recursive case.
+- returns 2 * halfPower(i.e power(2, 2)) * halfPower(i.e power(2, 2)) // this gives us 2 * (2^2) * (2^2) = 2 * 4 * 4 = 32
 
-power(2, 2):
+power(2, 2): How this is derived from the initial call of power(2, 5)
 - n = 2 (even)
-- halfPower = power(2, 1)
-- returns halfPower * halfPower            // this gives us 2 * 2 = 4
+- halfPower = power(2, 1)                      // integer division of 2/2 = 1
+- returns halfPower * halfPower                  // this gives us 2 * 2 = 4
 
-power(2, 1):
+power(2, 1): How this is derived from the initial call of power(2, 2)
 - n = 1 (odd)
 - halfPower = power(2, 0)                  // integer division of 1/2 = 0
-- returns 2 * halfPower * halfPower        // this gives us 2 * 1 * 1 = 2
+- returns 2 * halfPower * halfPower            // this gives us 2 * 1 * 1 = 2
 
 power(2, 0):
-- returns 1.0
+- returns 1
 ```
 
 ### Context of recursion: The Stack
@@ -95,11 +95,12 @@ Call Stack Creation:
 
 Recursive Call Stack Analysis for power(x, n):
 
-Example: power(2, 5)
+Example: single method call of power(2, 5)
+
 Call Stack Formation (Going Down):
 1. power(2, 5)
    - n is odd, will need: 2 * (halfPower * halfPower)
-   - calls power(2, 2)
+   - calls power(2, 2) 
    
 2. power(2, 2)
    - n is even, will need: halfPower * halfPower
@@ -110,14 +111,14 @@ Call Stack Formation (Going Down):
    - calls power(2, 0)
    
 4. power(2, 0)
-   - Base case! Returns 1.0
+   - Base case: Returns 1
 
 Call Stack Resolution (Going Up):
-4. power(2, 0) → returns 1.0
+4. power(2, 0) → returns 1
    
 3. power(2, 1) 
-   - halfPower = 1.0
-   - returns 2 * (1.0 * 1.0) = 2
+   - halfPower = 1
+   - returns 2 * (1 * 1) = 2
    
 2. power(2, 2)
    - halfPower = 2
@@ -127,22 +128,24 @@ Call Stack Resolution (Going Up):
    - halfPower = 4
    - returns 2 * (4 * 4) = 2 * 16 = 32
 
-Space Complexity Analysis:
-- Each recursive call creates a new stack frame storing:
-  * Local variables (x, n, halfPower)
-  * Return address
-  * Parameters
-- Maximum stack depth = O(log n) because:
+Space Complexity Analysis: Auxiliary Space Storage of Recursive Stack Frame
+- Each recursive call creates a new stack "frame" storing:
+  * The local variables (x, n, halfPower)
+  * The return address of those local variables
+  * The parameters of the method (x, n). i.e the method signature
+- The 'worst case' or "maximum stack depth" = O(log n) because:
   * Each recursive call divides n by 2
   * To reach 0 from n, we need log₂(n) divisions
   * Example: 16 → 8 → 4 → 2 → 1 → 0 (depth = log₂(16) = 4)
 
 Time Complexity Analysis:
-- Each recursive call: O(1) operations
-- Number of recursive calls: O(log n)
-- Total time complexity: O(log n)
+- Each recursive call: O(1) operation : 
+  * This is because we are only performing a few arithmetic operations (multiplication, addition, and division) which are constant time operations.
+- Number of recursive calls: O(log n) 
+- Therefore, the 'worst case' total time complexity: O(log n)
 - We achieve this by:
-  * Dividing the problem size by 2 each time (n/2)
-  * Reusing the halfPower calculation
-  * Avoiding linear recursion (we don't subtract just 1 each time)
+  * Dividing the problem size by 2 if the exponent is even (n/2)
+  * Leveraging the halfPower calculation as auxiliary space storage of the value to handle the odd exponent case
+  * Avoiding unnecessary linear recursion (a decrement of the exponent variable by 1 each recursive call)
+  * Tracking the value of n with a loop would be O(n) time complexity
 ```

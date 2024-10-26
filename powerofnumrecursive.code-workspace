@@ -7,6 +7,6 @@
 	"settings": {
 		"java.compile.nullAnalysis.mode": "automatic",
 		"cursor.general.gitGraphIndexing": "enabled",
-		"java.configuration.updateBuildConfiguration": "interactive"
+		"java.configuration.updateBuildConfiguration": "disabled"
 	}
 }
