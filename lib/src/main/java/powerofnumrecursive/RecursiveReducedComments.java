@@ -8,7 +8,7 @@ Time Complexity: Strive to achieve a time complexity of O(log n).
 Explanation: Provide a clear explanation of the time complexity of your code. */
 
 
-public class RecursiveReduced {
+public class RecursiveReducedComments {
     public double power(double x, double n) {
         if (n == 0) {
             return 1.0;
